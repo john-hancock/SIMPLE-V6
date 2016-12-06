@@ -1,0 +1,54 @@
+SIMPLE_v3.0
+
+Here you find the code for SIMPLE version 3.0, command line version.
+
+There is an online version at http://www.biochem.ucl.ac.uk/bsm/SIMPLE/
+
+If you publish results obtained with this program please cite: Albà, M.M., Laskowski, R.A., Hancock, J.M. (2002). Detecting cryptically simple protein sequences using the SIMPLE algorithm. Bioinformatics, Vol. 18: 672-688.
+
+FILES:
+README
+simple_net.cpp
+FOXP2.hs
+include/simple_net.cpp
+include/general_net.cpp
+
+EXTRACTION:
+gunzip SIMPLE_v3.0.tar.gz
+tar -xvf SIMPLE_v3.0.tar
+
+COMPILING:
+Use compiler of operating system, for example:
+Linux: g++ simple_net.cpp -o simple_net
+
+USAGE:
+
+For an explanation of parameters see http://www.biochem.ucl.ac.uk/bsm/SIMPLE/simple2.html
+
+Command line is: 
+
+simple_net    input_file    seq_type    file_type    mono    di    tri    tetra    window    nrandom    method    stringency    graphical_display   
+results_directory/ 
+
+Note that results_directory needs to have been previously created by user. 
+
+where: 
+seq_type: p -> protein  n-> DNA/RNA  y -> purine/pyrimidine 
+file_type: 1 -> Genbank   2-> EMBL/Swissprot   3-> plain/fasta 
+mono di tri tetra: values for repeats of different sizes (for example 1 0 0 0) 
+window: lenght of window (one side) 
+nrandom: number of random sequences (100 recommended) 
+method:  1 -> element frequency  2 -> shuffle elements 3 -> di-element frequency 4 -> frame frequency 
+stringency: 0.9    0.99    0.999 (ratio score motif test sequence / score motif random sequences) 
+graphical display: y    n 
+directory_results: where the S1, S2, etc. results files will be stored 
+
+example: 
+
+simple_net  FOXP2.hs  p  3  1  0  0  0  2  100  2  0.9  y  FOXP2_results/ 
+
+----
+23 Nov 2002
+Contact person: Mar Albà
+malba@imim.es
+
